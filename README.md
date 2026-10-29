@@ -4,6 +4,7 @@ Emulates the SBC: 1 MHz 65C02, 32K RAM, console ACIA at $8000, VIA at $9000,
 a full 32K EEPROM image (Forth at $A000, DOS extension at $D000, DOS at $E000),
 and the OSI disk interface (PIA $C000, ACIA $C010) with four 5.25" drives A–D
 that use Gotek HFE images on a micro SD card.
+<img width="383" height="192" alt="image" src="https://github.com/user-attachments/assets/619c7e1f-90c1-4585-b026-508e6b95e9db" />
 
 ## Files
 
