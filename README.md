@@ -1,9 +1,9 @@
-# SBC65_Emu — your 65C02 SBC on a Black Pill (STM32F401CC / CE)
+# SBC65_Emu — HobbyPCB.co.uk 65C02 SBC on a Black Pill (STM32F401CC / CE)
 
 Emulates the SBC: 1 MHz 65C02, 32K RAM, console ACIA at $8000, VIA at $9000,
-your full 32K EEPROM image (Forth at $A000, DOS extension at $D000, DOS at $E000),
+a full 32K EEPROM image (Forth at $A000, DOS extension at $D000, DOS at $E000),
 and the OSI disk interface (PIA $C000, ACIA $C010) with four 5.25" drives A–D
-that use your Gotek HFE images on a micro SD card.
+that use Gotek HFE images on a micro SD card.
 
 ## Files
 
@@ -15,20 +15,14 @@ that use your Gotek HFE images on a micro SD card.
 | `SBC65_Emu/disk470.h` | disk interface: PIA, disk ACIA, stepping, HFE track read/write |
 | `SBC65_Emu/fat.h`, `sdcard.h` | SD card (bit-banged on PA4-PA7) and FAT16/FAT32 reader |
 | `SBC65_Emu/cpu65c02.h` | WDC 65C02 core (passes Klaus Dormann's 6502 and 65C02 tests) |
-| `SBC65_Emu/rom_image.h` | the ROM. Shipped with a small test ROM; replace with yours |
-| `tools/bin2h.c` | converts your EEPROM .bin into `rom_image.h` |
+| `SBC65_Emu/rom_image.h` | the ROM.  |
 
-## 1. Put your ROM in
 
-Build `tools/bin2h.c` in Dev-C++ (or `gcc -O2 -o bin2h bin2h.c`), then:
+## 1. ROM
 
-```
-bin2h ROM32K.bin rom_image.h
-```
+rom_image.h is built from the SBC's EEPROM.
 
-A 32K file is placed at $8000-$FFFF, so file offset 0 = $8000, exactly as your
-EEPROM is programmed. Copy `rom_image.h` over the one in `SBC65_Emu/`.
-The shipped test ROM prints a banner and echoes keys.
+The 32K file is placed at $8000-$FFFF, so file offset 0 = $8000
 
 ## 2. Arduino IDE
 
